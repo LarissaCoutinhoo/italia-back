@@ -1,0 +1,12 @@
+{
+  "name": "projeto-back",
+  "version": "1.0.0",
+  "description": "API simples com lugares para visitar na Italia.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
