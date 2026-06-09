@@ -1,6 +1,16 @@
+const cors = require("cors");
 const express = require("express");
 
 const app = express();
+const corsOptions = {
+  origin: [
+    "https://italia-front.vercel.app",
+  ],
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
+};
+
+app.use(cors(corsOptions));
 const port = process.env.PORT || 3000;
 
 const FRONT_URL = process.env.FRONT_URL || "https://italia-front.vercel.app";
@@ -28,24 +38,19 @@ const lugares = [
   },
 ];
 
-// Simple CORS for browser access from the frontend
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    process.env.CORS_ALLOW_ORIGIN || "*",
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  if (req.method === "OPTIONS") return res.sendStatus(204);
-  next();
-});
-
 app.get("/", (req, res) => {
   res.send("API projeto-back: use /lugares para obter os dados.");
 });
 
 app.get("/lugares", (req, res) => {
   res.json(lugares);
+});
+
+app.get("/v1", (req, res) => {
+  res.json({
+    message: "Api v1 respondendo no container docker...",
+    chamada_em: new Date().toLocaleString("pt-BR"),
+  });
 });
 
 app.listen(port, () => {
