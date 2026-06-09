@@ -5,7 +5,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "https://italia-front.vercel.app/",
-    "https://orange-space-yodel-pj7jqgxgpg76f7rj9-8080.app.github.dev"
+    "https://ominous-succotash-q7v7g9w9p94xfx9gv-8080.app.github.dev"
   ],
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization",
