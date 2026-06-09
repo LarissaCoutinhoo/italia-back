@@ -4,13 +4,15 @@ const express = require("express");
 const app = express();
 const corsOptions = {
   origin: [
-    "https://italia-front.vercel.app",
+    "https://italia-front.vercel.app/",
+    "https://orange-space-yodel-pj7jqgxgpg76f7rj9-8080.app.github.dev"
   ],
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization",
 };
 
 app.use(cors(corsOptions));
+
 const port = process.env.PORT || 3000;
 
 const FRONT_URL = process.env.FRONT_URL || "https://italia-front.vercel.app";
